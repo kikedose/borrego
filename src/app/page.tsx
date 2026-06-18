@@ -1,14 +1,14 @@
 export default function Home() {
   return (
     <main className="flex-1">
-      <div className="h-dvh">
-        <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
-          Hero Section
-        </h1>
+      <div className="grid items-center h-dvh border border-solid border-red-500">
+        <div>
+          <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+            Hero Section
+          </h1>
 
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-          Snarky subtitle
-        </h2>
+          <h2 className="text-center">Snarky subtitle</h2>
+        </div>
       </div>
 
       <div>
