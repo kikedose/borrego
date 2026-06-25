@@ -16,7 +16,8 @@
   },
   "javascript": {
     "formatter": {
-      "semicolons": "always"
+      "semicolons": "always",
+      "quoteStyle": "single"
     }
   },
   "linter": {

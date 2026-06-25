@@ -1,7 +1,7 @@
-import { type NextRequest, NextResponse } from "next/server";
-import type { Locale } from "./lib/i18n";
-import { defaultLocale, supportedLocales } from "./lib/i18n";
-import { findBestLocaleMatch, parseAcceptLanguage } from "./lib/utils";
+import { type NextRequest, NextResponse } from 'next/server';
+import type { Locale } from './lib/i18n';
+import { defaultLocale, supportedLocales } from './lib/i18n';
+import { findBestLocaleMatch, parseAcceptLanguage } from './lib/utils';
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -16,14 +16,14 @@ export function proxy(request: NextRequest) {
 
   // 2. If no locale is present, detect the best locale and redirect
   // Get the Accept-Language header
-  const acceptLanguageHeader = request.headers.get("accept-language");
+  const acceptLanguageHeader = request.headers.get('accept-language');
 
   // Parse the header to get preferred languages
   const preferredLanguages = parseAcceptLanguage(acceptLanguageHeader);
 
   // Find the best match among supported locales
   // Checks for cookies first
-  const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value as
+  const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value as
     | Locale
     | undefined;
   const matchedLocale =
@@ -51,6 +51,6 @@ export const config = {
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      * - Static files with extensions (images, fonts, etc.)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|eot)).*)",
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|eot)).*)',
   ],
 };

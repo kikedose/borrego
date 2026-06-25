@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useParams, usePathname, useRouter } from "next/navigation";
-import { setLocaleCookie } from "~/lib/actions";
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import { setLocaleCookie } from '~/lib/actions';
 
 export default function LanguageSwitch() {
   const router = useRouter();
@@ -9,8 +9,8 @@ export default function LanguageSwitch() {
   const params = useParams();
 
   const triggerLocaleSwitch = async () => {
-    const { locale = "es" } = params as { locale?: string };
-    const nextLocale = locale === "es" ? "en" : "es";
+    const { locale = 'es' } = params as { locale?: string };
+    const nextLocale = locale === 'es' ? 'en' : 'es';
     const href = pathname.replace(locale, nextLocale);
 
     await setLocaleCookie(nextLocale);

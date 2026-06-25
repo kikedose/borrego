@@ -1,5 +1,5 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 /**
  * Combines multiple class names or conditional class names into a single string,
@@ -34,10 +34,10 @@ export const parseAcceptLanguage = (
   }
 
   const languages: LanguagePreference[] = headerValue
-    .split(",")
+    .split(',')
     .map((langEntry): LanguagePreference | null => {
       // Map potentially to null for invalid entries if needed (though currently filtering implicitly)
-      const parts = langEntry.trim().split(";q=");
+      const parts = langEntry.trim().split(';q=');
       const tag = parts[0]?.trim(); // Use optional chaining for safety
 
       if (!tag) {
@@ -89,12 +89,12 @@ export function findBestLocaleMatch(
       return preferredLang;
     }
 
-    const basePreferredLang = preferredLang.split("-")[0]?.toLowerCase();
+    const basePreferredLang = preferredLang.split('-')[0]?.toLowerCase();
 
     if (basePreferredLang) {
       for (const supportedLocale of supportedLocales) {
         const baseSupportedLocale = supportedLocale
-          .split("-")[0]
+          .split('-')[0]
           ?.toLowerCase();
         if (basePreferredLang === baseSupportedLocale) {
           return supportedLocale;

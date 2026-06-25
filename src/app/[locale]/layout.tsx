@@ -1,5 +1,5 @@
 // import Footer from '~/components/features/footer';
-import Navigation from "~/components/navigation";
+import Navigation from '~/components/navigation';
 // import ScrollProgress from '~/components/features/scroll-progress';
 
 export default async function SiteLayout({
@@ -7,14 +7,15 @@ export default async function SiteLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: "en" | "es"; id?: string }>;
+  params: Promise<{ locale: string; id?: string }>;
 }) {
   const { locale } = await params;
+  const safeLocale = locale as 'en' | 'es';
 
   return (
     <>
       {/* <ScrollProgress /> */}
-      <Navigation locale={locale} />
+      <Navigation locale={safeLocale} />
       <main className="w-full">{children}</main>
       {/* <Footer /> */}
     </>
