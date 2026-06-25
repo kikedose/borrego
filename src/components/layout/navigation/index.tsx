@@ -6,7 +6,7 @@ export default async function Navigation({ locale }: { locale: Locale }) {
   // const d = await getDictionary(locale);
 
   return (
-    <nav className="w-dvw flex border border-blue-500 border-solid fixed">
+    <nav className="fixed flex w-dvw border border-blue-500 border-solid">
       <div>{locale === 'es' ? 'HOLA' : 'HELLO'}</div>
       <LanguageSwitch />
     </nav>

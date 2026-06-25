@@ -20,7 +20,7 @@ export default function LanguageSwitch() {
   return (
     <button
       type="button"
-      className="border border-solid border-green-500 cursor-pointer hover:underline hover:decoration-dotted"
+      className="cursor-pointer border border-green-500 border-solid hover:underline hover:decoration-dotted"
       onClick={triggerLocaleSwitch}
     >
       [ {params.locale} ]
