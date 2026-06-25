@@ -50,7 +50,9 @@ export const parseAcceptLanguage = (
         const parsedQuality = parseFloat(parts[1]);
         // Ensure quality is a valid number between 0 and 1
         quality =
-          !isNaN(parsedQuality) && parsedQuality >= 0 && parsedQuality <= 1
+          !Number.isNaN(parsedQuality) &&
+          parsedQuality >= 0 &&
+          parsedQuality <= 1
             ? parsedQuality
             : 1.0;
       }
