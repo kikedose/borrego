@@ -1,20 +1,20 @@
 // import Footer from '~/components/features/footer';
-// import Navigation from '~/components/features/navigation';
+import Navigation from "~/components/navigation";
 // import ScrollProgress from '~/components/features/scroll-progress';
 
-export default async function StudioLayout({
+export default async function SiteLayout({
   children,
-  // params,
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: "en" | "es"; id?: string }>;
 }) {
-  // const { locale } = await params;
+  const { locale } = await params;
 
   return (
     <>
       {/* <ScrollProgress /> */}
-      {/* <Navigation locale={locale} /> */}
+      <Navigation locale={locale} />
       <main className="w-full">{children}</main>
       {/* <Footer /> */}
     </>

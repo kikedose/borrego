@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import type { Locale } from "./lib/i18n";
 import { defaultLocale, supportedLocales } from "./lib/i18n";
 import { findBestLocaleMatch, parseAcceptLanguage } from "./lib/utils";
 
@@ -10,8 +11,8 @@ export function proxy(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
-  // Using undefined signals Next.js to continue without rewrite/redirect
-  if (pathnameHasLocale) return undefined;
+  // Explicitly continue the middleware chain
+  if (pathnameHasLocale) return NextResponse.next();
 
   // 2. If no locale is present, detect the best locale and redirect
   // Get the Accept-Language header
@@ -21,11 +22,15 @@ export function proxy(request: NextRequest) {
   const preferredLanguages = parseAcceptLanguage(acceptLanguageHeader);
 
   // Find the best match among supported locales
-  const matchedLocale = findBestLocaleMatch(
-    preferredLanguages,
-    supportedLocales,
-    defaultLocale,
-  );
+  // Checks for cookies first
+  const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value as
+    | Locale
+    | undefined;
+  const matchedLocale =
+    (cookieLocale && supportedLocales.includes(cookieLocale)
+      ? cookieLocale
+      : null) ??
+    findBestLocaleMatch(preferredLanguages, supportedLocales, defaultLocale);
 
   // Construct the new URL with the detected locale
   // It's safer to clone the URL object before modifying it
