@@ -1,6 +1,5 @@
-// import Footer from '~/components/features/footer';
-import Navigation from '~/components/navigation';
-// import ScrollProgress from '~/components/features/scroll-progress';
+import Navigation from '~/components/layout/navigation';
+import ScrollProgress from '~/components/layout/scroll-progress';
 
 export default async function SiteLayout({
   children,
@@ -14,7 +13,7 @@ export default async function SiteLayout({
 
   return (
     <>
-      {/* <ScrollProgress /> */}
+      <ScrollProgress />
       <Navigation locale={safeLocale} />
       <main className="w-full">{children}</main>
       {/* <Footer /> */}
