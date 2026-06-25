@@ -1,0 +1,8 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "menu": "Menu",
+    "login": "Ingresar",
+    "signup": "Registrarse"
+  }
+}
