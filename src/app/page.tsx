@@ -1,9 +1,9 @@
 export default function Home() {
   return (
     <main className="flex-1">
-      <div className="grid items-center h-dvh border border-solid border-red-500">
+      <div className="grid h-dvh items-center border border-red-500 border-solid">
         <div>
-          <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+          <h1 className="scroll-m-20 text-balance text-center font-extrabold text-4xl tracking-tight">
             Hero Section
           </h1>
 
@@ -12,7 +12,7 @@ export default function Home() {
       </div>
 
       <div>
-        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+        <h3 className="scroll-m-20 font-semibold text-2xl tracking-tight">
           What we offer:
         </h3>
 
