@@ -16,7 +16,8 @@
   },
   "javascript": {
     "formatter": {
-      "semicolons": "always"
+      "semicolons": "always",
+      "quoteStyle": "single"
     }
   },
   "linter": {
@@ -25,6 +26,9 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off"
+      },
+      "nursery": {
+        "useSortedClasses": "warn"
       }
     },
     "domains": {
@@ -32,6 +36,21 @@
       "react": "recommended"
     }
   },
+  "overrides": [
+    {
+      "includes": ["**/*.tsx", "**/*.jsx", "**/*.html"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "useSortedClasses": {
+              "level": "warn",
+              "fix": "safe"
+            }
+          }
+        }
+      }
+    }
+  ],
   "assist": {
     "actions": {
       "source": {

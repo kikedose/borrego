@@ -1,0 +1,8 @@
+{
+  "navigation": {
+    "home": "Home",
+    "menu": "Menu",
+    "login": "Log In",
+    "signup": "Sign Up"
+  }
+}
